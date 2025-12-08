@@ -9,6 +9,7 @@ import SignupPage from "./pages/SignupPage";
 import { Toaster } from "react-hot-toast";
 import { useAuth } from "./context/AuthContext";
 import HeroForm from "./components/HeroForm";
+import About from "./pages/About";
 
 const App: React.FC = () => {
   const { authUser } = useAuth();
@@ -23,6 +24,7 @@ const App: React.FC = () => {
         <Route path="/dashboard" element={authUser?<Dashboard />:<Navigate to="/login"/>} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/addhero" element={<HeroForm/>}/>
+        <Route path="/about" element={<About/>}/>
       </Routes>
       <Toaster />
     </Router>
