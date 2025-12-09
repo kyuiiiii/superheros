@@ -24,7 +24,7 @@ export const addHero = async (req: Request, res: Response) => {
 
     const heroExist = await SuperHeroModel.findOne({ name });
     if (heroExist) {
-      return res.status(400).json({ error: "Email existe déjà" });
+      return res.status(400).json({ error: "Nom existe déjà" });
     }
 
     const newHero = new SuperHeroModel({
@@ -35,11 +35,11 @@ export const addHero = async (req: Request, res: Response) => {
     await newHero.save(); 
 
     return res.status(201).json({
-      message: "Utilisateur créé avec succès",
+      message: "Héro ajouté avec succès",
       hero: newHero,
     });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: "Erreur création utilisateur" });
+    return res.status(500).json({ error: "Erreur création héro" });
   }
 };
